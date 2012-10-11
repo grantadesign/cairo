@@ -49,7 +49,7 @@ CAIRO_HAS_GLX_FUNCTIONS 0 )
 SET(
 CAIRO_HAS_WGL_FUNCTIONS 0 )
 SET(
-CAIRO_HAS_SCRIPT_SURFACE 0 )
+CAIRO_HAS_SCRIPT_SURFACE 1 )
 SET(
 CAIRO_HAS_FT_FONT 0 )
 SET(
@@ -85,14 +85,18 @@ include_directories(
 	${GATEWAYDEPS_SOURCE_DIR}/cairo
 )
 
-#TODO: use find_cygwin or similar for cygwin path here
+find_package(cygwin)
+message("Using Cygwin make at ${CYGWIN_INSTALL_PATH}/bin/make to set up cairo features")
+
 add_custom_command(OUTPUT src/cairo-features.h
-	COMMAND c:/cygwin/bin/make -f ${GATEWAYDEPS_SOURCE_DIR}/cairo/build/Makefile.win32.features-h
+	COMMAND ${CYGWIN_INSTALL_PATH}/bin/make -f ${GATEWAYDEPS_SOURCE_DIR}/cairo/build/Makefile.win32.features-h
 	WORKING_DIRECTORY ${GATEWAYDEPS_SOURCE_DIR}/cairo
 )
 
 add_custom_target(UPDATE_CAIRO_FEATURES_H ALL
 	DEPENDS src/cairo-features.h
 )
+
+SET_PROPERTY(TARGET UPDATE_CAIRO_FEATURES_H PROPERTY FOLDER "cairo")
 
 add_subdirectory(src)

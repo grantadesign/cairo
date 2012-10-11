@@ -121,7 +121,7 @@ set(cairo_sources
 	cairo-surface-snapshot.c
 	cairo-surface-subsurface.c
 	cairo-surface-wrapper.c
-	cairo-system.c
+	#cairo-system.c
 	cairo-tor-scan-converter.c
 	cairo-toy-font-face.c
 	cairo-traps.c
@@ -258,11 +258,11 @@ set(cairo_quartz_image_sources  cairo-quartz-image-surface.c)
 
 set(cairo_quartz_font_sources  cairo-quartz-font.c)
 
-set(cairo_win32_headers  cairo-win32.h)
-set(cairo_win32_private  cairo-win32-private.h)
-set(cairo_win32_sources  cairo-win32-surface.c cairo-win32-printing-surface.c)
+set(cairo_win32_headers  win32/cairo-win32.h)
+set(cairo_win32_private  win32/cairo-win32-private.h)
+set(cairo_win32_sources  win32/cairo-win32-surface.c win32/cairo-win32-printing-surface.c)
 
-set(cairo_win32_font_sources  cairo-win32-font.c)
+set(cairo_win32_font_sources  win32/cairo-win32-font.c)
 
 set(cairo_skia_headers  cairo-skia.h)
 set(cairo_skia_cxx_sources  cairo-skia-surface.cpp)
@@ -384,5 +384,6 @@ add_definitions(
 #for pnglibconf.h, which is generated during libpng build, and not available in the source tree.
 include_directories("${GATEWAYDEPS_BINARY_DIR}/libpng")
 link_libraries(zlib png15 pixman gdi32 msimg32)
-add_library(cairo ${enabled_cairo_sources})
+add_library(cairo SHARED ${enabled_cairo_sources})
+SET_PROPERTY(TARGET cairo PROPERTY FOLDER "cairo")
 add_dependencies(cairo UPDATE_CAIRO_FEATURES_H)
