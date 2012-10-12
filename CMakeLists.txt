@@ -59,4 +59,6 @@ add_custom_target(UPDATE_CAIRO_FEATURES_H ALL
 SET_PROPERTY(TARGET UPDATE_CAIRO_FEATURES_H PROPERTY FOLDER "cairo")
 
 add_subdirectory(src)
-#add_subdirectory(test)
+# add_subdirectory(boilerplate)
+# add_subdirectory(util)
+# add_subdirectory(test)

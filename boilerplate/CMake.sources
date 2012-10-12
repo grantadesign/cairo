@@ -1,0 +1,36 @@
+#CMake conversion of Makefile.sources in /boilerplate.
+
+SET(cairo_boilerplate_headers
+	cairo-boilerplate-getopt.h
+	cairo-boilerplate-scaled-font.h
+	cairo-boilerplate-system.h
+	cairo-boilerplate.h)
+	
+SET(cairo_boilerplate_sources
+	cairo-boilerplate-getopt.c
+	cairo-boilerplate-system.c
+	cairo-boilerplate.c)
+
+SET(cairo_boilerplate_private
+	cairo-boilerplate-private.h)
+
+SET(cairo_boilerplate_beos_cxx_sources cairo-boilerplate-beos.cpp)
+SET(cairo_boilerplate_directfb_sources cairo-boilerplate-directfb.c)
+SET(cairo_boilerplate_drm_sources cairo-boilerplate-drm.c)
+SET(cairo_boilerplate_glx_sources cairo-boilerplate-glx.c)
+SET(cairo_boilerplate_wgl_sources cairo-boilerplate-wgl.c)
+SET(cairo_boilerplate_egl_sources cairo-boilerplate-egl.c)
+SET(cairo_boilerplate_pdf_sources cairo-boilerplate-pdf.c)
+SET(cairo_boilerplate_ps_sources cairo-boilerplate-ps.c)
+SET(cairo_boilerplate_qt_cxx_sources cairo-boilerplate-qt.cpp)
+SET(cairo_boilerplate_quartz_sources cairo-boilerplate-quartz.c)
+SET(cairo_boilerplate_script_sources cairo-boilerplate-script.c)
+SET(cairo_boilerplate_skia_sources cairo-boilerplate-skia.c)
+SET(cairo_boilerplate_svg_sources cairo-boilerplate-svg.c)
+SET(cairo_boilerplate_test_surfaces_sources cairo-boilerplate-test-surfaces.c)
+SET(cairo_boilerplate_win32_sources cairo-boilerplate-win32.c cairo-boilerplate-win32-printing.c)
+SET(cairo_boilerplate_xcb_sources cairo-boilerplate-xcb.c)
+SET(cairo_boilerplate_xlib_headers cairo-boilerplate-xlib.h)
+SET(cairo_boilerplate_xlib_sources cairo-boilerplate-xlib.c)
+SET(cairo_boilerplate_vg_sources cairo-boilerplate-vg.c)
+SET(cairo_boilerplate_cogl_sources cairo-boilerplate-cogl.c)

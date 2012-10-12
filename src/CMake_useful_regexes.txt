@@ -1,0 +1,11 @@
+FOR REPLACING $(STUFF) with ${STUFF} non-greedily
+
+\$\(([^\)]+)\) => ${\1}
+
+if constructs:
+
+ifeq \((.+),1\) => IF\(\1 EQUAL 1\)
+
++=:
+
+(.+) \+= (.+) => LIST\(APPEND \1 \2\)
